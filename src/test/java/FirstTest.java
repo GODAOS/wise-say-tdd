@@ -6,6 +6,16 @@ public class FirstTest {
 
     @Test
     void t1() {
-        assertThat(1).isEqualTo(1);
+        int rst = 1;
+        assertThat(rst).isEqualTo(1);
+    }
+
+    @Test
+    void t2() {
+        TestApp app = new TestApp();
+        String result = app.run();
+
+        // aaa가 출력 되는가?
+        assertThat(result).isEqualTo("aaa");
     }
 }
