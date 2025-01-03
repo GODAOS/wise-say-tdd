@@ -58,4 +58,14 @@ public class FirstTest {
         assertThat(out.toString())
                 .containsSubsequence("== 명언 앱 ==","명령앱을 종료합니다.");
     }
+
+    @Test
+    void t5() {
+        TestBot testBot = new TestBot();
+        String out = testBot.run("종료");
+
+        assertThat(out.toString())
+                .containsSubsequence("== 명언 앱 ==","명령앱을 종료합니다.");
+    }
+
 }
