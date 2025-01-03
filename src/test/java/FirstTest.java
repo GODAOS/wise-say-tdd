@@ -32,7 +32,7 @@ public class FirstTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();// 비어있는 스트림
         System.setOut(new PrintStream(out));
 
-        TestApp app =new TestApp();
+        App app =new App();
         app.run();
 
         assertThat(out.toString()).contains("명령앱을 종료합니다.");
@@ -49,7 +49,7 @@ public class FirstTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        TestApp app =new TestApp();
+        App app =new App();
         app.run();
 
         // 테스트 코드 작성이 어렵다.
@@ -60,12 +60,27 @@ public class FirstTest {
     }
 
     @Test
+    @DisplayName("테스트 봇 동작 확인")
     void t5() {
-        TestBot testBot = new TestBot();
-        String out = testBot.run("종료");
+        String out = TestBot.run("종료");
 
-        assertThat(out.toString())
+        assertThat(out)
                 .containsSubsequence("== 명언 앱 ==","명령앱을 종료합니다.");
+    }
+
+    @Test
+    @DisplayName("등록 - 명언 1개 입력")
+    void t6() {
+        // java 13버전 부터 """를 사용해서 줄나눔 가능
+        String out = TestBot.run("""
+        등록
+        현재를 사랑하라.
+        작자미상
+        종료
+        """);
+
+        assertThat(out)
+                .containsSubsequence("명언 : ","작가 : ");
     }
 
 }
