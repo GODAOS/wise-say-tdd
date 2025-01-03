@@ -1,6 +1,5 @@
 public class TestApp {
     public String run() {
-        System.out.println("aaa");
-        return "aaa";
+        return "명언 앱을 종료합니다.";
     }
 }

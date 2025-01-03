@@ -38,6 +38,8 @@ public class Main {
             System.setOut(new PrintStream(out));
             System.out.println("hello");
 
+            System.setOut(origin);
+
             String str = out.toString();
             System.out.println(str);
         }
